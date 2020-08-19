@@ -30,11 +30,11 @@ public class Tour {
     private String keywords;
 
 
-    @ManyToOne
+    @ManyToOne // Many tour package can be mapped to a particular tour.
     private TourPackage tourPackage;
 
     @Column
-    @Enumerated
+    @Enumerated // This is basically telling SpringBoot, this is Enum
     private Difficulty difficulty;
 
     @Column
