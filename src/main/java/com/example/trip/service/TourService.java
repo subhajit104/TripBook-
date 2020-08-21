@@ -9,6 +9,8 @@ import com.example.trip.repository.TourRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class TourService {
     private final TourRepository tourRepository;
@@ -23,7 +25,19 @@ public class TourService {
 
     /**
      * Create a new Tour Object and persist it to the Database.
-     *
+     * @return list of all tours.
+     */
+
+    public Iterable<Tour> findAll(){
+        return tourRepository.findAll();
+    }
+
+    public Optional<Tour> getTourById(int id){
+        return tourRepository.findById(id);
+    }
+
+    /**
+     * Create a new Tour Object and persist it to the Database.
      * @param title title
      * @param description description
      * @param blurb blurb

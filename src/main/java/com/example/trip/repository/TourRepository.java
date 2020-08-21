@@ -10,4 +10,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface TourRepository extends PagingAndSortingRepository<Tour,Integer> {
     Page<Tour> findByTourPackageCode(@Param("code") String code, Pageable pageable);
+    Iterable<Tour> findAll();
 }
