@@ -27,8 +27,8 @@ for creating a microservice complete with built-in health check, metrics and muc
 ### End point: List Of Tours:
    GET http://localhost:8080/tours
 ### End point: Post Ratings For A Trip.
-   POST http://localhost:8080/tours/1/hotels
-   Accept: application/json
+   POST http://localhost:8080/tours/1/hotels <br />
+   Accept: application/json <br />
    Content-Type: application/json
    
        {
@@ -77,8 +77,8 @@ for creating a microservice complete with built-in health check, metrics and muc
        }
 
 ### End point: Delete Rating For A Tour Of A Customer: 
-   DELETE http://localhost:8080/tours/1/ratings/48   ( 48 is the customerID)
-   Accept: application/json
+   DELETE http://localhost:8080/tours/1/ratings/48   ( 48 is the customerID) <br />
+   Accept: application/json <br />
    
        Content-Type: application/json
        {
