@@ -13,7 +13,9 @@ for creating a microservice complete with built-in health check, metrics and muc
 ### About the Service:
 -----------------------------------------------------------------------------------------------------
    The service is just a simple Trip review REST service. It uses an in-memory database (H2) to store the data.
+   
    You can also do with a relational database like MySQL or PostgreSQL with a little modification at properties.
+   
    If your database connection properties work, you can call some REST endpoints defined in package com.example.trip.business.controller on port 8080;
    You can use this sample service to understand the conventions and configurations that allow you to create a DB-backed RESTful service. Once you understand and get comfortable with the sample app you can add your own services following the same patterns as the sample service. 
    Here is what this little application demonstrates:
