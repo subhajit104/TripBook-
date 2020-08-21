@@ -31,72 +31,74 @@ for creating a microservice complete with built-in health check, metrics and muc
    Accept: application/json
    Content-Type: application/json
    
-   {
-           "score":"5",
-           "comment":"Enjoyed a lot",
-           "customerId": "5"
-   	
-   }
+       {
+               "score":"5",
+               "comment":"Enjoyed a lot",
+               "customerId": "5"
+        
+       }
       
-   RESPONSE: HTTP 201 (Created)
-   {
-       "pk": {
-           "tour": {
-               "id": 1,
-               "title": "Big Sur Retreat",
-               "description": "The region know as Big Sur is like Yosemite's younger cousin, with all the redwood scaling, rock climbing and, best of all, hiking that the larger park has to offer. Robison Jeffers once said, \"Big Sur is the greatest meeting of land and sea in the world,\" but the highlights are only accessible on foot.\nOur 3-day tour allows you to choose from multiple hikes led by experienced guides during the day, while comfortably situated in the evenings at the historic Big Sur River Inn. Take a tranquil walk to the coastal waterfall at Julia Pfeiffer Burns State Par or hike to the Married Redwoods. If you're prepared for a more strenuous climb, try Ollason's Peak in Toro Park. An optional 4th day includes admission to the Henry Miller Library and the Point Reyes Lighthouse.",
-               "blurb": "Big Sur is big country. The Big Sur Retreat takes you to the most majestic part of the Pacific Coast and show you the secret trails.",
-               "price": 750,
-               "duration": "3 days",
-               "bullets": "Accommodations at the historic Big Sur River Inn, Privately guided hikes through any of the 5 surrounding national parks, Picnic lunches prepared by the River Inn kitchen, Complimentary country breakfast, Admission to the Henry Miller Library and the Point Reyes Lighthouse",
-               "keywords": "Hiking, National Parks, Big Sur",
-               "tourPackage": {
-                   "code": "BC",
-                   "name": "Backpack Cal"
+       RESPONSE: HTTP 201 (Created)
+       {
+           "pk": {
+               "tour": {
+                   "id": 1,
+                   "title": "Big Sur Retreat",
+                   "description": "The region know as Big Sur is like Yosemite's younger cousin, with all the redwood scaling, rock climbing and, best of all, hiking that the larger park has to offer. Robison Jeffers once said, \"Big Sur is the greatest meeting of land and sea in the world,\" but the highlights are only accessible on foot.\nOur 3-day tour allows you to choose from multiple hikes led by experienced guides during the day, while comfortably situated in the evenings at the historic Big Sur River Inn. Take a tranquil walk to the coastal waterfall at Julia Pfeiffer Burns State Par or hike to the Married Redwoods. If you're prepared for a more strenuous climb, try Ollason's Peak in Toro Park. An optional 4th day includes admission to the Henry Miller Library and the Point Reyes Lighthouse.",
+                   "blurb": "Big Sur is big country. The Big Sur Retreat takes you to the most majestic part of the Pacific Coast and show you the secret trails.",
+                   "price": 750,
+                   "duration": "3 days",
+                   "bullets": "Accommodations at the historic Big Sur River Inn, Privately guided hikes through any of the 5 surrounding national parks, Picnic lunches prepared by the River Inn kitchen, Complimentary country breakfast, Admission to the Henry Miller Library and the Point Reyes Lighthouse",
+                   "keywords": "Hiking, National Parks, Big Sur",
+                   "tourPackage": {
+                       "code": "BC",
+                       "name": "Backpack Cal"
+                   },
+                   "difficulty": "Medium",
+                   "region": "Central_Coast"
                },
-               "difficulty": "Medium",
-               "region": "Central_Coast"
+               "customerId": 48
            },
-           "customerId": 48
-       },
-       "score": 5,
-       "comment": "This was really awsome"
-   }
+           "score": 5,
+           "comment": "This was really awsome"
+       }
     
 ### End point: List Of Ratings For Tour:
-   GET http://localhost:8080/tours/1/ratings/average
-   RESPONSE: HTTP 200 (OK)
-   {
-       "tourTitle": "Big Sur Retreat",
-       "tourDescription": "The region know as Big Sur is like Yosemite's younger cousin, with all the redwood scaling, rock climbing and, best of all, hiking that the larger park has to offer. Robison Jeffers once said, \"Big Sur is the greatest meeting of land and sea in the world,\" but the highlights are only accessible on foot.\nOur 3-day tour allows you to choose from multiple hikes led by experienced guides during the day, while comfortably situated in the evenings at the historic Big Sur River Inn. Take a tranquil walk to the coastal waterfall at Julia Pfeiffer Burns State Par or hike to the Married Redwoods. If you're prepared for a more strenuous climb, try Ollason's Peak in Toro Park. An optional 4th day includes admission to the Henry Miller Library and the Point Reyes Lighthouse.",
-       "averageRating": 5,
-       "comments": [
-           "This was really awsome"
-       ]
-   }
+   GET http://localhost:8080/tours/1/ratings/average <br />
+   RESPONSE: HTTP 200 (OK) <br />
+   
+       {
+           "tourTitle": "Big Sur Retreat",
+           "tourDescription": "The region know as Big Sur is like Yosemite's younger cousin, with all the redwood scaling, rock climbing and, best of all, hiking that the larger park has to offer. Robison Jeffers once said, \"Big Sur is the greatest meeting of land and sea in the world,\" but the highlights are only accessible on foot.\nOur 3-day tour allows you to choose from multiple hikes led by experienced guides during the day, while comfortably situated in the evenings at the historic Big Sur River Inn. Take a tranquil walk to the coastal waterfall at Julia Pfeiffer Burns State Par or hike to the Married Redwoods. If you're prepared for a more strenuous climb, try Ollason's Peak in Toro Park. An optional 4th day includes admission to the Henry Miller Library and the Point Reyes Lighthouse.",
+           "averageRating": 5,
+           "comments": [
+               "This was really awsome"
+           ]
+       }
 
 ### End point: Delete Rating For A Tour Of A Customer: 
    DELETE http://localhost:8080/tours/1/ratings/48   ( 48 is the customerID)
    Accept: application/json
-   Content-Type: application/json
-   {
-           "score":"5",
-           "comment":"This was really awsome",
-           "customerId": "48"
-   }
+   
+       Content-Type: application/json
+       {
+               "score":"5",
+               "comment":"This was really awsome",
+               "customerId": "48"
+       }
        
 ### To view your H2 in-memory database
-   The 'test' profile runs on H2 in-memory database. To view and query the database you can browse to http://localhost:8080/h2-console.
-   Default username is 'sa'
-   with a blank password. Make sure you disable this in your production profiles. For more, see https://goo.gl/U8m62X
+   The 'test' profile runs on H2 in-memory database. To view and query the database you can browse to http://localhost:8080/h2-console.<br />
+   Default username is 'sa'. <br />
+   with a blank password. Make sure you disable this in your production profiles. For more, see https://goo.gl/U8m62X <br />
       
 ### Running Project With MySql or PostGreSql: 
-   This project uses an in-memory database so that you don't have to install a database in order to run it. 
-   However, converting it to run with another relational database such as MySQL or PostgreSQL is very easy. 
-   Since the project uses Spring Data and the Repository pattern, it's even fairly easy to back the same service with MongoDB.
+   This project uses an in-memory database so that you don't have to install a database in order to run it. <br />
+   However, converting it to run with another relational database such as MySQL or PostgreSQL is very easy. <br />
+   Since the project uses Spring Data and the Repository pattern, it's even fairly easy to back the same service with MongoDB. <br />
     
-   Here is what you would do to back the services with MySQL, for example:
-   In pom.xml add:
+   Here is what you would do to back the services with MySQL, for example: <br />
+   In pom.xml add: 
       
                            <dependency>
                            <groupId>org.postgresql</groupId>
