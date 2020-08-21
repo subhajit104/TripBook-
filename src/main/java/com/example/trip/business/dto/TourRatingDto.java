@@ -1,16 +1,20 @@
 package com.example.trip.business.dto;
 
+import org.springframework.http.HttpStatus;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class TourRatingDto {
 
+    private HttpStatus httpStatus;
     private String tourTitle;
     private String tourDescription;
     private float averageRating;
     private List<String> comments;
 
     public TourRatingDto() {
+        httpStatus = HttpStatus.OK;
         comments = new ArrayList<>();
     }
 

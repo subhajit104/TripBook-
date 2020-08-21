@@ -13,10 +13,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 import java.util.NoSuchElementException;
-import java.util.Optional;
 
 @RestController
 @RequestMapping(path = "tours/{tourId}/ratings")
@@ -36,14 +34,20 @@ public class TourRatingController {
         this.tourService = tourService;
     }
 
+    /**
+     *
+     * @param tourId tour identifier.
+     * @retrun created tourRatingClass.
+     */
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public TourRating createRating(@PathVariable(value = "tourId") int tourId, @RequestBody @Validated RatingDto ratingDto) throws Exception {
          verifyTour(tourId);
          Tour tour = verifyTour(tourId);
-         tourRatingService
-                 .save(new TourRating(new TourRatingPk(tour,ratingDto.getCustomerId()),ratingDto.getScore(),ratingDto.getComment()));
-         return tourRatingRepository.findById(new TourRatingPk(tour,ratingDto.getCustomerId())).get();
+         TourRatingPk tourRatingPk = new TourRatingPk(tour,ratingDto.getCustomerId());
+         TourRating tourRating = new TourRating(tourRatingPk,ratingDto.getScore(),ratingDto.getComment());
+         tourRatingRepository.save(tourRating);
+         return tourRating;
     }
 
     /**
@@ -52,12 +56,11 @@ public class TourRatingController {
      * @retrun tourRatingDto have average rating for that studio.
      */
     @GetMapping("/average")
-    @ResponseStatus(HttpStatus.OK)
     public TourRatingDto getRatingForTour(@PathVariable(value = "tourId") int tourId) {
         Tour tour = verifyTour(tourId);
         List<TourRating> tourRatings = tourRatingRepository.findByPkTourId(tourId);
         int numberOfRatings = tourRatings.size();
-        if(numberOfRatings == 0 ) throw  new NoSuchElementException("No ratings there");
+        if(numberOfRatings == 0 ) throw  new NoSuchElementException("NO SUCH RATINGS THERE");
         float score = 0.0f;
         TourRatingDto tourRatingDto = new TourRatingDto();
         for (TourRating tourRating : tourRatings) {
@@ -96,19 +99,17 @@ public class TourRatingController {
 
     /**
      * Verify and return the Tour given a tourId.
-     *
      * @param tourId tour identifier
      * @return the found Tour
      * @throws NoSuchElementException if no Tour found.
      */
     private Tour verifyTour(int tourId) throws NoSuchElementException {
         return tourRepository.findById(tourId).orElseThrow(() ->
-                new NoSuchElementException("Tour does not exist " + tourId));
+                new NoSuchElementException(" NO SUCH TOUR EXIST " + tourId));
     }
 
     /**
      * Exception handler if NoSuchElementException is thrown in this Controller
-     *
      * @param ex exception
      * @return Error message String.
      */
