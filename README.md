@@ -1,7 +1,9 @@
 # SpringBoot Project: TripBook 
+------------------------------
 This is a sample Java / Maven / Spring Boot (version 2.3.3) application that can be used as a starter 
 for creating a microservice complete with built-in health check, metrics and much more. I hope it helps you.
 ### How to run: 
+--------------
        1. This application is packaged as a jar which has Tomcate mbedded. No Tomcat or JBoss installation is necessary.
        2. You run it using the java -jar command.
        3. Clone this repository
