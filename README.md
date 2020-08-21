@@ -1,9 +1,9 @@
 # SpringBoot Project: TripBook 
-------------------------------
+-----------------------------------------------------------------------------------------------
 This is a sample Java / Maven / Spring Boot (version 2.3.3) application that can be used as a starter 
 for creating a microservice complete with built-in health check, metrics and much more. I hope it helps you.
 ### How to run: 
---------------
+-----------------------------------------------------------------------------------------------
        1. This application is packaged as a jar which has Tomcate mbedded. No Tomcat or JBoss installation is necessary.
        2. You run it using the java -jar command.
        3. Clone this repository
@@ -11,6 +11,7 @@ for creating a microservice complete with built-in health check, metrics and muc
        5. You can build the project and run the tests by running mvn clean package
        6. Once successfully built, you can run the service using this method: " java -jar target/*.jar "  
 ### About the Service:
+-----------------------------------------------------------------------------------------------------
    The service is just a simple Trip review REST service. It uses an in-memory database (H2) to store the data.
    You can also do with a relational database like MySQL or PostgreSQL with a little modification at properties.
    If your database connection properties work, you can call some REST endpoints defined in package com.example.trip.business.controller on port 8080;
@@ -25,6 +26,7 @@ for creating a microservice complete with built-in health check, metrics and muc
       1. Spring Data Integration with JPA/Hibernate with just a few lines of configuration and familiar annotations.
       1. Automatic CRUD functionality against the data source using Spring Repository pattern
 ### End point: List Of Tours:
+------------------------------
 
 ### End point: Post Ratings For A Trip.
      
