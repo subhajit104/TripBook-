@@ -27,7 +27,7 @@ for creating a microservice complete with built-in health check, metrics and muc
 ### End point: List Of Tours:
    GET http://localhost:8080/tours
 ### End point: Post Ratings For A Trip.
-   POST http://localhost:8080/tours/1/hotels <br />
+   POST http://localhost:8080/tours/1/ratings <br />
    Accept: application/json <br />
    Content-Type: application/json
    
